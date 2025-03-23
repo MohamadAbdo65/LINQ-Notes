@@ -184,6 +184,20 @@ namespace LINQ
           
         static void Main(string[] args)
         {
+            // 1) SequenceEqual()
+
+            List<int> Numbers1 = new List<int> { 1, 2, 3, 4 };
+            List<int> Numbers2 = new List<int> { 1, 2, 3, 4 };
+
+            var Result = Numbers1.SequenceEqual(Numbers2);
+
+            // For the result to be correct, the two lists must have
+            // the same number of elements and each element must be equal
+            // to the other element.
+
+            Console.WriteLine("Are the List1 and the List2 equal ? " +  Result);
+
+
 
 
             Console.ReadKey();

@@ -185,7 +185,6 @@ namespace LINQ
         static void Main(string[] args)
         {
 
-
             Console.ReadKey();
         }
 
@@ -724,6 +723,35 @@ namespace LINQ
             // to the other element.
 
             Console.WriteLine("Are the List1 and the List2 equal ? " + Result);
+
+        }
+
+        static void Concatenation()
+        {
+            // Concatenation 
+            // it is the result of merging two Lists
+
+            var emps1 = DataBase.GetAllEmployees().Where(e => e.Salary > 7000);
+            var emps2 = DataBase.GetAllEmployees().Where(e => e.Salary < 5000);
+
+            var emps3 = emps1.Concat(emps2);
+
+            emps3.Print("Emps1 + Emps2");
+
+            Console.WriteLine("\n");
+
+            // you can merge specific elements
+
+            var emps4 = emps1.Select(e => e.Salary).Concat(emps2.Select(e => e.Salary));
+
+            foreach (var e in emps4)
+                Console.WriteLine(e);
+
+            // other method to merge elements
+
+            var emps5 = new[] { emps1, emps2 }.SelectMany(e => e);
+
+            emps5.Print("\n");
 
         }
 

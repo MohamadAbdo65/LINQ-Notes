@@ -72,6 +72,11 @@ namespace LINQ
             this.Amount = amount;
         }
 
+        public override string ToString()
+        {
+            return $"{SaleID} - {SaleDate.ToShortDateString()} - {Amount}";
+        }
+
     }
 
 
@@ -184,66 +189,6 @@ namespace LINQ
 
         static void Main(string[] args)
         {
-            // Aggregate operations are used to perform computations on collections of data,
-            // such as sum, average, count, max, and min
-
-            // 1) Strings Aggregation
-
-            var Names = new[] { "Ahmed", "Ali", "Mohamad", "Moaaz", "Khaled" };
-
-            var Result = Names.Aggregate((a , b) => $"{a} - {b}");
-
-            Console.WriteLine("Result : " + Result);
-
-
-            // 2) Numbers Aggregation
-
-            List<double> Numbers = new List<double> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-
-            double TaxAmount = 1.14;
-
-            var Total = Numbers.Aggregate(0.0, (a, b) => a + (b * TaxAmount));
-
-            Console.WriteLine("Total : " + Total);
-
-            // 3) Get Greatest Value
-
-            var Emps = DataBase.GetAllEmployees();
-
-            var GreatestSalary = Emps.First();
-
-            GreatestSalary = Emps.Aggregate
-            (
-                GreatestSalary,
-                (greatest, next) => greatest.Salary < next.Salary ? next : greatest,
-                x => x
-            );
-
-            Console.WriteLine(GreatestSalary.ToString());
-
-            // So you can customize the method as you want,
-            // as in the three previous methods.
-
-            // *-*-*-*-*-*
-
-
-            // There are Standard methods
-
-            var AllSales = DataBase.GetAllSales();
-
-            // 1) Count 
-
-            Console.WriteLine($"Total sales : {AllSales.Count()}");
-
-            Console.WriteLine($"Total sales in and after 2019 : " +
-                $"{AllSales.Count(s => s.SaleDate.Year >= 2019)}");
-
-            Console.WriteLine($"Total sales in and after 2019 : " +
-                $"{AllSales.Where(s => s.SaleDate.Year >= 2019).Count()}");
-
-            // if the result greater than "int" data type 
-            // there is LongCount() method !
-
 
 
             Console.ReadKey();
@@ -818,6 +763,96 @@ namespace LINQ
 
         static void AggregateOperations()
         {
+            // Aggregate operations are used to perform computations on collections of data,
+            // such as sum, average, count, max, and min
+
+            // 1) Strings Aggregation
+
+            var Names = new[] { "Ahmed", "Ali", "Mohamad", "Moaaz", "Khaled" };
+
+            var Result = Names.Aggregate((a, b) => $"{a} - {b}");
+
+            Console.WriteLine("Result : " + Result);
+
+
+            // 2) Numbers Aggregation
+
+            List<double> Numbers = new List<double> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            double TaxAmount = 1.14;
+
+            var Total = Numbers.Aggregate(0.0, (a, b) => a + (b * TaxAmount));
+
+            Console.WriteLine("Total : " + Total);
+
+            // 3) Get Greatest Value
+
+            var Emps = DataBase.GetAllEmployees();
+
+            var GreatestSalary = Emps.First();
+
+            GreatestSalary = Emps.Aggregate
+            (
+                GreatestSalary,
+                (greatest, next) => greatest.Salary < next.Salary ? next : greatest,
+                x => x
+            );
+
+            Console.WriteLine(GreatestSalary.ToString());
+
+            // So you can customize the method as you want,
+            // as in the three previous methods.
+
+            // *-*-*-*-*-*
+
+
+            // There are Standard methods
+
+            var AllSales = DataBase.GetAllSales();
+
+            // 1) Count 
+
+            Console.WriteLine($"Total sales : {AllSales.Count()}");
+
+            Console.WriteLine($"Total sales in and after 2019 : " +
+                $"{AllSales.Count(s => s.SaleDate.Year >= 2019)}");
+
+            Console.WriteLine($"Total sales in and after 2019 : " +
+                $"{AllSales.Where(s => s.SaleDate.Year >= 2019).Count()}");
+
+            // if the result greater than "int" data type 
+            // there is LongCount() method !
+
+            // 2) Max - Min
+
+            Console.WriteLine($"Max sale : {AllSales.Max(s => s.Amount)}");
+
+            Console.WriteLine($"Max sale in 2016 : " +
+                $"{AllSales.Where(s => s.SaleDate.Year == 2016).Max(s => s.Amount)}");
+
+            // to get more details about max value you can use MaxBy()
+
+            Console.WriteLine($"Max sale : {AllSales.MaxBy(s => s.Amount)}");
+
+            Console.WriteLine($"Max sale in 2016 : " +
+                $"{AllSales.Where(s => s.SaleDate.Year == 2016).MaxBy(s => s.Amount)}");
+
+
+            // 3) Sum 
+
+            Console.WriteLine($"Sum sales : {AllSales.Sum(s => s.Amount)}$");
+
+            Console.WriteLine($"Sum sales in 2016 :" +
+                $" {AllSales.Where(s => s.SaleDate.Year == 2016).Sum(s => s.Amount)}$");
+
+
+            // 4) Average
+
+            Console.WriteLine($"Average sales : {(float)AllSales.Average(s => s.Amount)}");
+
+            Console.WriteLine($"Average sales in 2016 : " +
+                $"{(float)AllSales.Where(s => s.SaleDate.Year == 2016).Average(s => s.Amount)}");
+
 
         }
 

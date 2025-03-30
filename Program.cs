@@ -206,8 +206,20 @@ namespace LINQ
 
             Console.WriteLine("Total : " + Total);
 
+            // 3) Get Greatest Value
 
+            var Emps = DataBase.GetAllEmployees();
 
+            var GreatestSalary = Emps.First();
+
+            GreatestSalary = Emps.Aggregate
+            (
+                GreatestSalary,
+                (greatest, next) => greatest.Salary < next.Salary ? next : greatest,
+                x => x
+            );
+
+            Console.WriteLine(GreatestSalary.ToString());
 
             Console.ReadKey();
         }

@@ -221,6 +221,31 @@ namespace LINQ
 
             Console.WriteLine(GreatestSalary.ToString());
 
+            // So you can customize the method as you want,
+            // as in the three previous methods.
+
+            // *-*-*-*-*-*
+
+
+            // There are Standard methods
+
+            var AllSales = DataBase.GetAllSales();
+
+            // 1) Count 
+
+            Console.WriteLine($"Total sales : {AllSales.Count()}");
+
+            Console.WriteLine($"Total sales in and after 2019 : " +
+                $"{AllSales.Count(s => s.SaleDate.Year >= 2019)}");
+
+            Console.WriteLine($"Total sales in and after 2019 : " +
+                $"{AllSales.Where(s => s.SaleDate.Year >= 2019).Count()}");
+
+            // if the result greater than "int" data type 
+            // there is LongCount() method !
+
+
+
             Console.ReadKey();
         }
 

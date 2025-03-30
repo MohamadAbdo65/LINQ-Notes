@@ -184,6 +184,27 @@ namespace LINQ
 
         static void Main(string[] args)
         {
+            // Aggregate operations are used to perform computations on collections of data,
+            // such as sum, average, count, max, and min
+
+            // 1) Strings Aggregation
+
+            var Names = new[] { "Ahmed", "Ali", "Mohamad", "Moaaz", "Khaled" };
+
+            var Result = Names.Aggregate((a , b) => $"{a} - {b}");
+
+            Console.WriteLine("Result : " + Result);
+
+
+            // 2) Numbers Aggregation
+
+            List<double> Numbers = new List<double> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            double TaxAmount = 1.14;
+
+            var Total = Numbers.Aggregate(0.0, (a, b) => a + (b * TaxAmount));
+
+            Console.WriteLine("Total : " + Total);
 
 
 
@@ -755,6 +776,11 @@ namespace LINQ
             var emps5 = new[] { emps1, emps2 }.SelectMany(e => e);
 
             emps5.Print("\n");
+
+        }
+
+        static void AggregateOperations()
+        {
 
         }
 

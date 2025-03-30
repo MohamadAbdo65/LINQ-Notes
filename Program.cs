@@ -26,7 +26,7 @@ namespace LINQ
             LastName = "NULL",
             Salary = 0,
             Age = 0
-        };           
+        };
 
         private Employee()
         {
@@ -61,25 +61,25 @@ namespace LINQ
 
     public class Sale
     {
-        public int SaleID { get; set; } 
+        public int SaleID { get; set; }
         public DateTime SaleDate { get; set; }
         public int Amount { get; set; }
-        
-        public Sale(int id , DateTime date , int amount)
+
+        public Sale(int id, DateTime date, int amount)
         {
             this.SaleID = id;
             this.SaleDate = date;
             this.Amount = amount;
         }
-    
+
     }
 
 
     public static class DataBase
     {
         public static IEnumerable<Employee> GetAllEmployees()
-            {
-                return new List<Employee>()
+        {
+            return new List<Employee>()
                 {
                     new Employee(1, "Ali", "Ahmed", 5000, 30),
                     new Employee(2, "Omar", "Khalid", 6000, 28),
@@ -102,7 +102,7 @@ namespace LINQ
                     new Employee(19, "Ibrahim", "Farhan", 7100, 39),
                     new Employee(20, "Saif", "Othman", 5400, 28)
                 };
-            }
+        }
 
         public static IEnumerable<Sale> GetAllSales()
         {
@@ -129,7 +129,7 @@ namespace LINQ
                 new Sale(19, new DateTime(2019,1,1) , 1005) ,
                 new Sale(20, new DateTime(2020,1,1) , 1370) ,
                 new Sale(21, new DateTime(2020,5,1) , 1850) ,
-                new Sale(22, new DateTime(2020,1,1) , 1720) 
+                new Sale(22, new DateTime(2020,1,1) , 1720)
             };
         }
 
@@ -138,22 +138,22 @@ namespace LINQ
     public static class ExtentionsEmployee
     {
         public static IEnumerable<Employee> Filter
-            (this IEnumerable<Employee> source , Func<Employee , bool> condition)
+            (this IEnumerable<Employee> source, Func<Employee, bool> condition)
         {
             foreach (Employee e in source)
             {
-                if(condition(e))
+                if (condition(e))
                 {
                     yield return e;
                 }
             }
         }
 
-        public static void Print (this IEnumerable<Employee> sourse , string Message)
+        public static void Print(this IEnumerable<Employee> sourse, string Message)
         {
             Console.WriteLine($"\t {Message}");
             Console.WriteLine("---------------------------------------");
-            foreach(Employee e in sourse)
+            foreach (Employee e in sourse)
             {
                 Console.WriteLine(e.Id + "  " + e.FirstName + "  " + e.LastName + "  " + e.Salary + "  " + e.Age);
             }
@@ -163,7 +163,7 @@ namespace LINQ
 
     public static class ExtentionsSales
     {
-        public static void Print (this IEnumerable<Sale> sourse , string Message)
+        public static void Print(this IEnumerable<Sale> sourse, string Message)
         {
             Console.WriteLine($"\t {Message}");
             Console.WriteLine("---------------------------------------");
@@ -173,7 +173,7 @@ namespace LINQ
             }
         }
 
-        public static void PrintTotalSales(this IEnumerable<Sale> sourse , string Message)
+        public static void PrintTotalSales(this IEnumerable<Sale> sourse, string Message)
         {
             Console.WriteLine(Message + " : " + sourse.Sum(s => s.Amount));
         }
@@ -181,9 +181,12 @@ namespace LINQ
 
     public static class Program
     {
-          
+
         static void Main(string[] args)
         {
+
+
+
 
             Console.ReadKey();
         }
@@ -246,7 +249,7 @@ namespace LINQ
         static void ImportantNote()
         {
             List<int> Numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-                        
+
             // Very important Note !
 
             // when you create query : 
@@ -644,7 +647,7 @@ namespace LINQ
 
         }
 
-        static void ElementOperations() 
+        static void ElementOperations()
         {
             var emps = DataBase.GetAllEmployees();
 
@@ -755,5 +758,5 @@ namespace LINQ
 
         }
 
-    }  
+    }
 }

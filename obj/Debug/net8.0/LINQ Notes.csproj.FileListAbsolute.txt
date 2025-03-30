@@ -1,0 +1,30 @@
+D:\Raod map\W Linq\LINQ\LINQ Notes\bin\Debug\net8.0\LINQ Notes.exe
+D:\Raod map\W Linq\LINQ\LINQ Notes\bin\Debug\net8.0\LINQ Notes.deps.json
+D:\Raod map\W Linq\LINQ\LINQ Notes\bin\Debug\net8.0\LINQ Notes.runtimeconfig.json
+D:\Raod map\W Linq\LINQ\LINQ Notes\bin\Debug\net8.0\LINQ Notes.dll
+D:\Raod map\W Linq\LINQ\LINQ Notes\bin\Debug\net8.0\LINQ Notes.pdb
+D:\Raod map\W Linq\LINQ\LINQ Notes\obj\Debug\net8.0\LINQ Notes.GeneratedMSBuildEditorConfig.editorconfig
+D:\Raod map\W Linq\LINQ\LINQ Notes\obj\Debug\net8.0\LINQ Notes.AssemblyInfoInputs.cache
+D:\Raod map\W Linq\LINQ\LINQ Notes\obj\Debug\net8.0\LINQ Notes.AssemblyInfo.cs
+D:\Raod map\W Linq\LINQ\LINQ Notes\obj\Debug\net8.0\LINQ Notes.csproj.CoreCompileInputs.cache
+D:\Raod map\W Linq\LINQ\LINQ Notes\obj\Debug\net8.0\LINQ Notes.sourcelink.json
+D:\Raod map\W Linq\LINQ\LINQ Notes\obj\Debug\net8.0\LINQ Notes.dll
+D:\Raod map\W Linq\LINQ\LINQ Notes\obj\Debug\net8.0\refint\LINQ Notes.dll
+D:\Raod map\W Linq\LINQ\LINQ Notes\obj\Debug\net8.0\LINQ Notes.pdb
+D:\Raod map\W Linq\LINQ\LINQ Notes\obj\Debug\net8.0\LINQ Notes.genruntimeconfig.cache
+D:\Raod map\W Linq\LINQ\LINQ Notes\obj\Debug\net8.0\ref\LINQ Notes.dll
+D:\Raod map\W Linq\LINQ\bin\Debug\net8.0\LINQ Notes.exe
+D:\Raod map\W Linq\LINQ\bin\Debug\net8.0\LINQ Notes.deps.json
+D:\Raod map\W Linq\LINQ\bin\Debug\net8.0\LINQ Notes.runtimeconfig.json
+D:\Raod map\W Linq\LINQ\bin\Debug\net8.0\LINQ Notes.dll
+D:\Raod map\W Linq\LINQ\bin\Debug\net8.0\LINQ Notes.pdb
+D:\Raod map\W Linq\LINQ\obj\Debug\net8.0\LINQ Notes.GeneratedMSBuildEditorConfig.editorconfig
+D:\Raod map\W Linq\LINQ\obj\Debug\net8.0\LINQ Notes.AssemblyInfoInputs.cache
+D:\Raod map\W Linq\LINQ\obj\Debug\net8.0\LINQ Notes.AssemblyInfo.cs
+D:\Raod map\W Linq\LINQ\obj\Debug\net8.0\LINQ Notes.csproj.CoreCompileInputs.cache
+D:\Raod map\W Linq\LINQ\obj\Debug\net8.0\LINQ Notes.sourcelink.json
+D:\Raod map\W Linq\LINQ\obj\Debug\net8.0\LINQ Notes.dll
+D:\Raod map\W Linq\LINQ\obj\Debug\net8.0\refint\LINQ Notes.dll
+D:\Raod map\W Linq\LINQ\obj\Debug\net8.0\LINQ Notes.pdb
+D:\Raod map\W Linq\LINQ\obj\Debug\net8.0\LINQ Notes.genruntimeconfig.cache
+D:\Raod map\W Linq\LINQ\obj\Debug\net8.0\ref\LINQ Notes.dll

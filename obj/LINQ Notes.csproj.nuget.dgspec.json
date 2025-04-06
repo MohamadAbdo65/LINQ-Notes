@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Raod map\\W Linq\\LINQ\\LINQ Notes.csproj": {}
+    "D:\\Raod map\\W Linq + EF\\LINQ\\LINQ Notes.csproj": {}
   },
   "projects": {
-    "D:\\Raod map\\W Linq\\LINQ\\LINQ Notes.csproj": {
+    "D:\\Raod map\\W Linq + EF\\LINQ\\LINQ Notes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Raod map\\W Linq\\LINQ\\LINQ Notes.csproj",
+        "projectUniqueName": "D:\\Raod map\\W Linq + EF\\LINQ\\LINQ Notes.csproj",
         "projectName": "LINQ Notes",
-        "projectPath": "D:\\Raod map\\W Linq\\LINQ\\LINQ Notes.csproj",
+        "projectPath": "D:\\Raod map\\W Linq + EF\\LINQ\\LINQ Notes.csproj",
         "packagesPath": "C:\\Users\\محمد مكتبي\\.nuget\\packages\\",
-        "outputPath": "D:\\Raod map\\W Linq\\LINQ\\obj\\",
+        "outputPath": "D:\\Raod map\\W Linq + EF\\LINQ\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\محمد مكتبي\\AppData\\Roaming\\NuGet\\NuGet.Config",

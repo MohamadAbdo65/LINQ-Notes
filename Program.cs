@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Policy;
 using System.Threading;
 using System.Xml.Linq;
@@ -78,7 +79,6 @@ namespace LINQ
         }
 
     }
-
 
     public static class DataBase
     {
@@ -183,6 +183,112 @@ namespace LINQ
             Console.WriteLine(Message + " : " + sourse.Sum(s => s.Amount));
         }
     }
+
+
+    //*-**-*
+
+    public class clsPerson
+    {
+
+    }
+
+    public class clsEmployee : clsPerson
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Salary { get; set; }
+        public string Department { get; set; }
+
+        public clsEmployee(int id, string name, int salary, string department)
+        {
+            this.ID = id;
+            this.Name = name;
+            this.Salary = salary;
+            this.Department = department;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.ID} - {this.Name} - {this.Salary} - {this.Department}";
+        }
+
+    }
+
+    public static class DataBase2
+    {
+        public static IEnumerable<clsEmployee> AllEmployees = new List<clsEmployee>
+        {
+             new clsEmployee(1, "Ahmed", 10000, "HR"),
+             new clsEmployee(2, "Ali", 12000, "IT"),
+             new clsEmployee(3, "Sara", 15000, "Finance"),
+             new clsEmployee(4, "Mohamed", 11000, "Marketing"),
+             new clsEmployee(5, "Fatima", 13000, "Sales"),
+             new clsEmployee(6, "Hassan", 14000, "HR"),
+             new clsEmployee(7, "Khalid", 12500, "IT"),
+             new clsEmployee(8, "Nour", 13500, "Finance"),
+             new clsEmployee(9, "Omar", 14500, "Marketing"),
+             new clsEmployee(10, "Layla", 15500, "Sales"),
+             new clsEmployee(11, "Youssef", 11500, "HR"),
+             new clsEmployee(12, "Mariam", 10500, "IT"),
+             new clsEmployee(13, "Tariq", 16500, "Finance"),
+             new clsEmployee(14, "Zainab", 17500, "Marketing"),
+             new clsEmployee(15, "Huda", 18500, "Sales"),
+             new clsEmployee(16, "Walid", 19500, "HR"),
+             new clsEmployee(17, "Ayman", 20500, "IT"),
+             new clsEmployee(18, "Rania", 21500, "Finance"),
+             new clsEmployee(19, "Samir", 22500, "Marketing"),
+             new clsEmployee(20, "Hisham", 23500, "Sales"),
+             new clsEmployee(21, "Kareem", 24500, "HR"),
+             new clsEmployee(22, "Sami", 25500, "IT"),
+             new clsEmployee(23, "Lina", 26500, "Finance"),
+             new clsEmployee(24, "Salma", 27500, "Marketing"),
+             new clsEmployee(25, "Mustafa", 28500, "Sales"),
+             new clsEmployee(26, "Nadia", 29500, "HR"),
+             new clsEmployee(27, "Bilal", 30500, "IT"),
+             new clsEmployee(28, "Amal", 31500, "Finance"),
+             new clsEmployee(29, "Hatem", 32500, "Marketing"),
+             new clsEmployee(30, "Rami", 33500, "Sales"),
+             new clsEmployee(31, "Dina", 34500, "HR"),
+             new clsEmployee(32, "Ibrahim", 35500, "IT"),
+             new clsEmployee(33, "Jamal", 36500, "Finance"),
+             new clsEmployee(34, "Shadia", 37500, "Marketing"),
+             new clsEmployee(35, "Wael", 38500, "Sales"),
+             new clsEmployee(36, "Aisha", 39500, "HR"),
+             new clsEmployee(37, "Ziad", 40500, "IT"),
+             new clsEmployee(38, "Farida", 41500, "Finance"),
+             new clsEmployee(39, "Hani", 42500, "Marketing"),
+             new clsEmployee(40, "Othman", 43500, "Sales"),
+             new clsEmployee(41, "Bassam", 44500, "HR"),
+             new clsEmployee(42, "Reem", 45500, "IT"),
+             new clsEmployee(43, "Karim", 46500, "Finance"),
+             new clsEmployee(44, "Ghada", 47500, "Marketing"),
+             new clsEmployee(45, "Tamer", 48500, "Sales"),
+             new clsEmployee(46, "Noor", 49500, "HR"),
+             new clsEmployee(47, "Yasmin", 50500, "IT"),
+             new clsEmployee(48, "Omar", 51500, "Finance"),
+             new clsEmployee(49, "Hussein", 52500, "Marketing"),
+             new clsEmployee(50, "Fadi", 53500, "Sales"),
+             new clsEmployee(51, "Ibrahim", 33120, "Marketing"),
+             new clsEmployee(52, "Nader", 25000, "HR"),
+             new clsEmployee(53, "Rezk", 41200, "IT"),
+             new clsEmployee(54, "Ramadan", 47000, "Finance"),
+             new clsEmployee(55, "Reda", 66000, "Marketing")
+
+        };
+
+        public static void PrintEmployees(this IEnumerable<clsEmployee> source, string? Title = null)
+        {
+            if (Title != null)
+                Console.WriteLine($"# {Title} #");
+
+            foreach (clsEmployee e in source)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+
+    }
+
 
     public static class Program
     {
@@ -855,6 +961,225 @@ namespace LINQ
 
 
         }
+
+        static void SetsOperations()
+        {
+            // some data
+            var EmpsWithSalaryGreaterThan25k = DataBase2.AllEmployees.Where(e => e.Salary >= 25000);
+
+            // some data also 
+            var EmpsWithDepartmentHR = DataBase2.AllEmployees.Where(e => e.Department == "HR");
+
+            // concat these data 
+            var Emps = EmpsWithSalaryGreaterThan25k.Concat(EmpsWithDepartmentHR);
+
+
+            // # 1) Distinct #
+
+
+            // to remove the repeated data you have 2 methods
+
+            // 1) Distinct() - by this method you can remove the repeated data 
+            // like (12 & 12)
+            // but if there class and there many properties
+            // you should use the next method 
+
+
+            // 2) DistinctBy()
+
+            // if we try to print our data 
+            Emps.PrintEmployees();
+            // we well find repeated Employees !
+
+            var EmpsWithoutRepeated = Emps.DistinctBy(e => e.ID);
+            // by this method we removed the repeated employees By ID :)
+
+            // let's try to print them 
+
+            EmpsWithoutRepeated.OrderBy(e => e.ID).ToList();
+            EmpsWithoutRepeated.PrintEmployees();
+
+
+            /* # 2) Except # */
+            Console.WriteLine("\n\n");
+
+            // The Except method in C# is used to return the difference
+            // between two collections, removing elements from the first
+            // collection that also exist in the second collection.
+
+            var emps1 = EmpsWithSalaryGreaterThan25k.
+                ExceptBy(EmpsWithDepartmentHR.Select(e => e.ID), e => e.ID);
+
+            emps1.PrintEmployees();
+
+
+            /* # 3) Intersect # */
+            Console.WriteLine("\n\n");
+
+            // The Intersect method in C# is used to return the same elements
+            // between two collections, removing elements from the first
+            // collection that also exist in the second collection.
+
+            var emps2 = EmpsWithSalaryGreaterThan25k.
+               IntersectBy(EmpsWithDepartmentHR.Select(e => e.ID), e => e.ID);
+
+            emps2.PrintEmployees();
+
+
+            /* # 4) Union # */
+            Console.WriteLine("\n\n");
+
+            var Emps10 = DataBase2.AllEmployees.Where(e => e.Salary <= 20000);
+            var Emps11 = DataBase2.AllEmployees.Where(e => e.Salary <= 15000);
+
+            var Emps10And11 = Emps10.Union(Emps11);
+
+            Emps10And11.PrintEmployees();
+
+
+            // Summary : 
+            // Union → Combines two collections, removing duplicates.
+            // Except → Returns elements from the first collection that are not in the second.
+            // Distinct → Removes duplicate values from a collection.
+            // Intersect → Returns common elements between two collections.
+
+
+        }
+
+        static void ExpressionTrees()
+        {
+            // Func 
+            Func<int, bool> IsEven = num => num % 2 == 0;
+            Console.WriteLine(IsEven(5));
+            Console.WriteLine(IsEven.Invoke(5));
+
+            // Expression
+            Expression<Func<int, bool>> IsEvenExpression = num => num % 2 == 0;
+            Func<int, bool> IsEvenV2 = IsEvenExpression.Compile();
+            Console.WriteLine(IsEvenV2(5));
+
+            // Parse Expression
+            Expression<Func<int, bool>> IsNegative = num => num < 0;
+
+            ParameterExpression parameter = IsNegative.Parameters[0];
+            BinaryExpression operation = (BinaryExpression)IsNegative.Body;
+            ParameterExpression left = (ParameterExpression)operation.Left;
+            ConstantExpression right = (ConstantExpression)operation.Right;
+
+
+            Console.WriteLine
+                ($"{parameter.Name} => {left.Name} {operation.NodeType} {right.Value}");
+
+
+            // Create Expression  
+            // dynamic method !! 
+
+
+            // is the number integer ? 
+            // (num) => num % 1 == 0  
+
+            ParameterExpression numPar = Expression.Parameter(typeof(double), "num");
+
+            ConstantExpression oneNum = Expression.Constant(1.0, typeof(double));
+            ConstantExpression zeroNum = Expression.Constant(0.0, typeof(double));
+
+            BinaryExpression ModuloBinary = Expression.Modulo(numPar, oneNum);
+            BinaryExpression equalBinary = Expression.Equal(ModuloBinary, zeroNum);
+
+            Expression<Func<double, bool>> IsIntegerExpression = Expression.Lambda
+                <Func<double, bool>>(equalBinary, new ParameterExpression[] { numPar });
+
+            var IsInteger = IsIntegerExpression.Compile();
+            Console.WriteLine(IsInteger(2.23));
+            Console.WriteLine(IsInteger(5));
+        }
+
+        static void IEnumerableVSIQueryable()
+        {
+            // IEnumerable<T> works in memory and is used for iterating over
+            // collections like List < T > and Array.
+
+            // IEnumerable < T > uses Func<T, TResult>, meaning filtering happens
+            // in the application, not in the database.
+
+
+            // IQueryable < T > works with databases and allows query translation
+            // into SQL for execution on the server.
+
+            // IQueryable < T > uses Expression<Func<T, TResult>>, allowing
+            // queries to be analyzed and optimized before execution.
+        }
+
+        static void ConvertingDataTypes()
+        {
+            IEnumerable<clsEmployee> AllEmps = DataBase2.AllEmployees;
+
+            // Executes the query in memory after retrieving data from the source (e.g., database).
+            var AsEnumerable = DataBase2.AllEmployees.AsEnumerable();
+
+            // Allows query execution at the source (e.g., SQL Server) before fetching data.
+            var AsQueryable = DataBase2.AllEmployees.AsQueryable();
+
+            // Converts all elements to the specified type but throws an exception if conversion is not possible.
+            var CastMethod = DataBase2.AllEmployees.Cast<clsPerson>();
+
+            // Filters elements that match the specified type and ignores others.
+            var OfTypeMethod = DataBase2.AllEmployees.OfType<clsEmployee>();
+
+            // Converts the data into an array, loading all elements into memory.
+            var ToArrayMethod = DataBase2.AllEmployees.ToArray();
+
+            // Converts the data into a list, loading all elements into memory.
+            var ToListMethod = DataBase2.AllEmployees.ToList();
+
+            // Converts the data into a dictionary using a unique key for each element.
+            Dictionary<int, clsEmployee> EmpsAsDictionary = DataBase2
+                .AllEmployees.ToDictionary(e => e.ID);
+
+        }
+
+        public static IEnumerable<Tsourse> Paginate<Tsourse>
+            (this IEnumerable<Tsourse> sourses, int? Page, int? PageSize)
+        {
+            if (sourses == null)
+                throw new ArgumentNullException($"{nameof(sourses)}");
+
+            if (!Page.HasValue)
+                Page = 1;
+
+            if (!PageSize.HasValue)
+                PageSize = 10;
+
+            if (!sourses.Any())
+                return Enumerable.Empty<Tsourse>();
+
+            return sourses.Skip((Page.Value - 1) * PageSize.Value).Take(PageSize.Value);
+        }
+
+        static void CustomLINQExtensionMethod()
+        {
+            var AllEmps = DataBase2.AllEmployees;
+
+            var Page1 = AllEmps.Paginate(1, 15);
+            Page1.PrintEmployees("Page 1 [15 Emps]");
+
+            Console.WriteLine("\n\n");
+
+            var Page2 = AllEmps.Paginate(2, 15);
+            Page2.PrintEmployees("Page 2 [15 Emps]");
+
+            Console.WriteLine("\n\n");
+
+            var Page3 = AllEmps.Paginate(3, 15);
+            Page3.PrintEmployees("Page 3 [15 Emps]");
+
+            Console.WriteLine("\n\n");
+
+            var Page4 = AllEmps.Paginate(4, 15);
+            Page4.PrintEmployees("Page 4 [10 Emps]");
+
+        }
+
 
     }
 }

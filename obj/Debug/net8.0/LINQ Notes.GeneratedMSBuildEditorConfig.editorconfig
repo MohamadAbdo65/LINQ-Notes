@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LINQ_Notes
-build_property.ProjectDir = D:\Raod map\W Linq\LINQ\
+build_property.ProjectDir = D:\Raod map\W Linq + EF\LINQ\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

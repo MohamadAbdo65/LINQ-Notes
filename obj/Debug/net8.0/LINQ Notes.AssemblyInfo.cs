@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LINQ Notes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9c69640f6258178f76c4efc302728de730f667b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+750104b79a5adf3953c5b192f2c7421f653e230f")]
 [assembly: System.Reflection.AssemblyProductAttribute("LINQ Notes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LINQ Notes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
